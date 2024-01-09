@@ -34,33 +34,33 @@ def count_nodes_init(dico,node_id,x,y,z):
         
     
     
-def save_quadtree_viz(dico,name="quadtree_viz.blp"):
+def save_quadtree_viz(points_c,dico,name="quadtree_viz.blp"):
     
     borders=get_borders(points_c)
     
-    min_x=borders[0]
-    max_x=borders[1]
-    min_y=borders[2]
-    max_y=borders[3]
-    min_z=borders[4]
-    max_z=borders[5]
+    min_x=borders[0].item()
+    max_x=borders[1].item()
+    min_y=borders[2].item()
+    max_y=borders[3].item()
+    min_z=borders[4].item()
+    max_z=borders[5].item()
     
     min_coord=min(min_x,min_y)
     min_coord=min(min_coord,min_z)
-    min_coord=min_coord.item()
+    min_coord=min_coord
     
     max_coord=max(max_x,max_y)
     max_coord=max(max_coord,max_z)
-    max_coord=max_coord.item()
+    max_coord=max_coord
     
-    X, Y, Z = np.mgrid[min_coord:max_coord:256j, min_coord:max_coord:256j, min_coord:max_coord:256j]
+    X, Y, Z = np.mgrid[min_x:max_x:64j, min_y:max_y:64j, min_z:max_z:64j]
+    resolution=64
+    values =np.zeros((resolution,resolution,resolution))
     
-    values =np.zeros((256,256,256))
-    
-    for ax in range(0,256):
+    for ax in range(0,resolution):
         print(ax)
-        for ay in range(0,256):
-            for az in range(0,256):
+        for ay in range(0,resolution):
+            for az in range(0,resolution):
                 tmp_x=X[ax,ay,az]
                 tmp_y=Y[ax,ay,az]
                 tmp_z=Z[ax,ay,az]
@@ -82,7 +82,7 @@ def viz_quadtree(name="quadtree_viz.blp"):
     
     max_coord=1
 
-    X, Y, Z = np.mgrid[min_coord:max_coord:256j, min_coord:max_coord:256j, min_coord:max_coord:256j]
+    X, Y, Z = np.mgrid[min_coord:max_coord:64j, min_coord:max_coord:64j, min_coord:max_coord:64j]
 
     values = bp.unpack_ndarray_from_file(name)
     
