@@ -61,6 +61,7 @@ def get_file_ply(name):
                 x=float(l[1])
                 y=float(l[2])
                 z=float(l[3])
+
                 vert[cpt_vert]=(x,y,z)
                 cpt_vert+=1
                 continue
