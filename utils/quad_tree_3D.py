@@ -2,7 +2,6 @@ import torch
 import matplotlib.pyplot as plt
 import numpy as np
 import plotly.graph_objects as go
-import bloscpack as bp
 
 def get_borders(points):
     min_x=torch.min(points[:,0])

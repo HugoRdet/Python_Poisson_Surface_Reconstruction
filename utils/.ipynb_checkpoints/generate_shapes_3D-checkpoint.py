@@ -2,7 +2,6 @@ import torch
 import matplotlib.pyplot as plt
 import numpy as np
 import plotly.graph_objects as go
-import bloscpack as bp
 
 def sphere_points_and_normals_torch(radius, num_points_theta, num_points_phi):
     """
