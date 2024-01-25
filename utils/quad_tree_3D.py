@@ -21,7 +21,7 @@ def get_borders(points):
     
     return (min_x,min_x+width,min_y,min_y+width,min_z,min_z+width)
 
-def ajout_node(borders,l_p,label,tmp_depth,dico):
+def ajout_node(borders,borders_father,l_p,label,tmp_depth,dico):
     gx,dx,gy,dy,gz,dz=borders
     
     tmp_oc=torch.zeros(3)
@@ -29,7 +29,7 @@ def ajout_node(borders,l_p,label,tmp_depth,dico):
     tmp_oc[1]=(gy+dy)/2.0
     tmp_oc[2]=(gz+dz)/2.0
     
-    dico[label]=(tmp_depth,tmp_oc,dx-gx,borders,l_p)
+    dico[label]=(tmp_depth,tmp_oc,dx-gx,borders,borders_father,l_p)
     
 
 def create_quadtree(dico,tmp_depth,depth,points,borders,label):
@@ -76,7 +76,7 @@ def create_quadtree(dico,tmp_depth,depth,points,borders,label):
     
     border=(gx,dx,gy,dy,gz,dz)
     
-    ajout_node(border,hgb,label+"1",tmp_depth,dico)
+    ajout_node(border,borders,hgb,label+"1",tmp_depth,dico)
     
     if (hgb.shape[0]>1)and depth!=tmp_depth:
         create_quadtree(dico,tmp_depth+1,depth,hgb.clone(),border,label+"1")
@@ -90,7 +90,7 @@ def create_quadtree(dico,tmp_depth,depth,points,borders,label):
     
     border=(gx,dx,gy,dy,gz,dz)
     
-    ajout_node(border,hdb,label+"2",tmp_depth,dico)
+    ajout_node(border,borders,hdb,label+"2",tmp_depth,dico)
     
     if (hdb.shape[0]>1)and depth!=tmp_depth:
         create_quadtree(dico,tmp_depth+1,depth,hdb.clone(),border,label+"2")
@@ -104,7 +104,7 @@ def create_quadtree(dico,tmp_depth,depth,points,borders,label):
     
     border=(gx,dx,gy,dy,gz,dz)
     
-    ajout_node(border,bgb,label+"3",tmp_depth,dico)
+    ajout_node(border,borders,bgb,label+"3",tmp_depth,dico)
     
     
     
@@ -121,7 +121,7 @@ def create_quadtree(dico,tmp_depth,depth,points,borders,label):
     
     border=(gx,dx,gy,dy,gz,dz)
     
-    ajout_node(border,bdb,label+"4",tmp_depth,dico)
+    ajout_node(border,borders,bdb,label+"4",tmp_depth,dico)
 
     if (bdb.shape[0]>1) and depth!=tmp_depth:
         create_quadtree(dico,tmp_depth+1,depth,bdb.clone(),border,label+"4")
@@ -135,7 +135,7 @@ def create_quadtree(dico,tmp_depth,depth,points,borders,label):
     
     border=(gx,dx,gy,dy,gz,dz)
     
-    ajout_node(border,hga,label+"5",tmp_depth,dico)
+    ajout_node(border,borders,hga,label+"5",tmp_depth,dico)
     
     if (hga.shape[0]>1)and depth!=tmp_depth:
         create_quadtree(dico,tmp_depth+1,depth,hga.clone(),border,label+"5")
@@ -149,7 +149,7 @@ def create_quadtree(dico,tmp_depth,depth,points,borders,label):
     
     border=(gx,dx,gy,dy,gz,dz)
     
-    ajout_node(border,hda,label+"6",tmp_depth,dico)
+    ajout_node(border,borders,hda,label+"6",tmp_depth,dico)
     
     if (hda.shape[0]>1)and depth!=tmp_depth:
         create_quadtree(dico,tmp_depth+1,depth,hda.clone(),border,label+"6")
@@ -163,7 +163,7 @@ def create_quadtree(dico,tmp_depth,depth,points,borders,label):
     
     border=(gx,dx,gy,dy,gz,dz)
     
-    ajout_node(border,bga,label+"7",tmp_depth,dico)
+    ajout_node(border,borders,bga,label+"7",tmp_depth,dico)
     
     
     
@@ -180,7 +180,7 @@ def create_quadtree(dico,tmp_depth,depth,points,borders,label):
     
     border=(gx,dx,gy,dy,gz,dz)
     
-    ajout_node(border,bda,label+"8",tmp_depth,dico)
+    ajout_node(border,borders,bda,label+"8",tmp_depth,dico)
 
     if (bda.shape[0]>1) and depth!=tmp_depth:
         create_quadtree(dico,tmp_depth+1,depth,bda.clone(),border,label+"8")
