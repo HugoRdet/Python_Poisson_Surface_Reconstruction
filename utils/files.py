@@ -26,7 +26,7 @@ def get_file(name):
         res[idx_tensor]=tensor
     return res
 
-def get_file_ply(name):
+def get_file_obj(name):
     f = open(name, "r")
     content=f.read()
     lines=content.split("\n")
@@ -81,9 +81,9 @@ def get_file_ply(name):
                         res[cpt_res,0]=xv
                         res[cpt_res,1]=yv
                         res[cpt_res,2]=zv
-                        res[cpt_res,3]=xn
-                        res[cpt_res,4]=yn
-                        res[cpt_res,5]=zn
+                        res[cpt_res,3]=-xn
+                        res[cpt_res,4]=-yn
+                        res[cpt_res,5]=-zn
                         cpt_res+=1
                         
 
