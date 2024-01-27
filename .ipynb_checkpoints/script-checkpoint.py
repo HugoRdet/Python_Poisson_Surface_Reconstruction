@@ -268,7 +268,7 @@ def get_V_vec(resolution,batch_size,points_c,dico,D,name="V.blp"):
     
     l_s,l_o=get_os(points_c.shape[0],dico,D)
 
-    batch_size_grid=128
+    batch_size_grid=256
 
     min_x=torch.min(points_c[:,0]).item()
     max_x=torch.max(points_c[:,0]).item()
@@ -317,8 +317,8 @@ def get_V_vec(resolution,batch_size,points_c,dico,D,name="V.blp"):
     
 #start_time = time.time()    
 
-get_V_vec(256,32,points_c,dico,D=8,name="V_dragon_8_256.npy")   
-get_V_vec(1024,32,points_c,dico,D=10,name="V_dragon_10_1024.npy")   
+#get_V_vec(256,32,points_c,dico,D=8,name="V_dragon_8_256.npy")   
+get_V_vec(1024,5,points_c,dico,D=10,name="V_dragon_10_1024.npy")   
 
 #end_time = time.time()
 
