@@ -81,9 +81,9 @@ def get_file_obj(name):
                         res[cpt_res,0]=xv
                         res[cpt_res,1]=yv
                         res[cpt_res,2]=zv
-                        res[cpt_res,3]=-xn
-                        res[cpt_res,4]=-yn
-                        res[cpt_res,5]=-zn
+                        res[cpt_res,3]=xn
+                        res[cpt_res,4]=yn
+                        res[cpt_res,5]=zn
                         cpt_res+=1
                         
 
