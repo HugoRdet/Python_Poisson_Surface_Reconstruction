@@ -1,6 +1,6 @@
 # 3D Poisson Surface Reconstruction
 <p align="center">
-  <img src="./bunny.png" alt="Image 1" width="250"/>
+  <img src="./bunny.png" alt="Image 1"/>
 </p>
 
 
