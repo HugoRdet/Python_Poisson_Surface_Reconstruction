@@ -15,6 +15,13 @@ For more informations please refer to IG3DA_RIFFAUD.pdf
 - Solves linear systems crucial for generating the mesh.
 - Extracts iso-surfaces to finalize the 3D mesh construction.
 
+<p align="center">
+  <img src="./data/vector_field.png" alt="Image 2" width="250"/>
+  <img src="./data/sys_res.png" alt="Image 3" width="250"/>
+  <img src="./bunny.png" alt="Image 1" width="250"/>
+</p>
+
+
 ## Reference
 
 Kazhdan, Michael, Matthew Bolitho, and Hugues Hoppe. "Poisson surface reconstruction." Proceedings of the fourth Eurographics symposium on Geometry processing. Vol. 7. No. 4. 2006.
