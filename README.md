@@ -1,4 +1,8 @@
 # 3D Poisson Surface Reconstruction
+<p align="center">
+  <img src="./bunny.png" alt="Image 1" width="250"/>
+</p>
+
 
 ## Overview
 This repository contains the implementation of the Poisson Surface Reconstruction paper (https://hhoppe.com/poissonrecon.pdf). The implementation leverages Python and PyTorch to construct a 3D mesh from a cloud of points.
